@@ -47,7 +47,8 @@ if ( array_key_exists('newFilm', $_POST) ) {
 		)";
 
 		if ( mysqli_query($link, $query) ) {
-			$notifySuccess = "<p style='color: #fff;'>Фильм успешно добавлен!</p>";
+			header("Location: ".$_SERVER["REQUEST_URI"]);
+			//$notifySuccess = "<p style='color: #fff;'>Фильм успешно добавлен!</p>";
 		} else {
 			$notifyError = "<p style='color: #fff;'>Произошла ошибка! Попробуйте еще раз</p>";
 		}
@@ -68,10 +69,7 @@ if ( $result = mysqli_query($link, $query) ){
 	}
 }
 
-// Redirect when submit form
-if ( !empty($_POST["newFilm"]) ) {
-    header("Location: ".$_SERVER["REQUEST_URI"]);
-  }
+
 
  ?>
 
